@@ -1,3 +1,3 @@
 class Post < ApplicationRecord
-include MyUploader::Attachment(:image)
+  include MyUploader::Attachment(:image)
 end
