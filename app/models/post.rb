@@ -1,5 +1,7 @@
 class Post < ApplicationRecord
-  include MyUploader::Attachment(:image)
+  include ImageUploader::Attachment(:image)
 
-  validates :title, :price
+  belongs_to :category
+
+  validates :title, :price, :description, presence: true
 end
