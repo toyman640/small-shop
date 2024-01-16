@@ -1,4 +1,4 @@
-class PostsController < ApplicationController
+class Api::V1::PostsController < ApplicationController
   before_action :set_post, only: %i[show update destroy]
 
   # GET /posts
@@ -47,6 +47,6 @@ class PostsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def post_params
-    params.fetch(:post, {})
+    params.require(:post).permit(:title, :price, :image, :description, :category_id)
   end
 end
