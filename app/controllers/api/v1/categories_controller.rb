@@ -48,6 +48,6 @@ class Api::V1::CategoriesController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def category_params
-    params.fetch(:category, {})
+    params.require(:category).permit(:name, :description)
   end
 end
